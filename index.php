@@ -19,7 +19,7 @@ class Student
         return self::BASE_FEE;
     }
 
-    public function getDetails()
+    public function getEnrollmentDetails()
     {
         return 'Name: ' . $this->name . ' | ID: ' . $this->studentId . ' | Course: ' . $this->course;
     }
@@ -199,7 +199,7 @@ $demoStudents = [
                 <div class="success-banner">Status: Successfully Enrolled</div>
                 <h2>Enrollment Result</h2>
                 <div class="result">
-                    <p><?php echo htmlspecialchars($student->getDetails()); ?></p>
+                    <p><?php echo htmlspecialchars($student->getEnrollmentDetails()); ?></p>
                     <table>
                         <tr>
                             <td>Student Type:</td>
@@ -219,7 +219,7 @@ $demoStudents = [
         <?php endif; ?>
 
         <div class="card">
-            <h2>Polymorphism Demonstration</h2>
+            <h2>Enrollment Demonstration</h2>
             <p class="hint">
                 The same <code>enroll()</code> method is called for every object,
                 but each subclass provides its own result.
@@ -229,7 +229,7 @@ $demoStudents = [
                     <thead>
                         <tr>
                             <th>Class</th>
-                            <th>getDetails()</th>
+                            <th>getEnrollmentDetails()</th>
                             <th>Enrollment Rule</th>
                             <th>enroll() Fee</th>
                         </tr>
@@ -238,7 +238,7 @@ $demoStudents = [
                         <?php foreach ($demoStudents as $demo): ?>
                             <tr>
                                 <td><code><?php echo htmlspecialchars(get_class($demo)); ?></code></td>
-                                <td><?php echo htmlspecialchars($demo->getDetails()); ?></td>
+                                <td><?php echo htmlspecialchars($demo->getEnrollmentDetails()); ?></td>
                                 <td><?php echo htmlspecialchars(getEnrollRule($demo)); ?></td>
                                 <td>&#8369;<?php echo number_format($demo->enroll(), 2); ?></td>
                             </tr>
